@@ -9,18 +9,18 @@ import (
 func TestSeveMux(t *testing.T) {
 
 	mux := http.NewServeMux()
-	mux.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+	mux.HandleFunc("/", func(w http.ResponseWriter, _ *http.Request) {
 		fmt.Fprint(w, "Hello World")
 	})
 
-	mux.HandleFunc("/main", func(w http.ResponseWriter, r *http.Request) {
+	mux.HandleFunc("/main", func(w http.ResponseWriter, _ *http.Request) {
 		fmt.Fprint(w, "Welcome to Main page")
 	})
-	mux.HandleFunc("/images/", func(w http.ResponseWriter, r *http.Request) {
+	mux.HandleFunc("/images/", func(w http.ResponseWriter, _ *http.Request) {
 		fmt.Fprint(w, "Images")
 	})
 
-	mux.HandleFunc("/images/thumbnail/", func(w http.ResponseWriter, r *http.Request) {
+	mux.HandleFunc("/images/thumbnail/", func(w http.ResponseWriter, _ *http.Request) {
 		fmt.Fprint(w, "Thumbnail")
 	})
 
@@ -34,4 +34,3 @@ func TestSeveMux(t *testing.T) {
 		panic(err)
 	}
 }
-

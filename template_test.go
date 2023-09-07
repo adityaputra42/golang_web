@@ -61,8 +61,9 @@ func TestTempleateDirectory(t *testing.T) {
 	fmt.Println(string(body))
 }
 
-// go:embed templates/*.gohtml
+//go:embed templates/*.gohtml
 var templates embed.FS
+
 func SimpleHTMLEmbed(writer http.ResponseWriter, request *http.Request) {
 	t := template.Must(template.ParseFS(templates, "templates/*.gohtml"))
 	t.ExecuteTemplate(writer, "simple.gohtml", "Hello HTML Template")
